@@ -39,37 +39,76 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error loading KML layer:', error);
     });
 
-    let imageOverlay = null;
+    let activeImageIndex = -1; // Variable to track the active image overlay
+    const imageUrls = [
+        'image1.png',
+        'image2.png',
+        'image3.png',
+        'image4.png',
+        'image5.png',
+        'image6.png',
+        'image7.png',
+        'image8.png',
+        'image9.png',
+    ];
 
-    const imageUrl = 'mapa_geologia.png';
-    const imageBounds = [[-29.844, 16.618], [-35.142, 27.708]];
+    const imageBoundsArray = [
+        [[-28.844, 14.618], [-34.142, 25.708]],  // Image 1 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 2 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 3 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 4 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 5 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 6 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 7 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 8 bounds
+        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]]   // Image 9 bounds
+    ];
 
-      function toggleImageOverlay() {
-        if (imageOverlay) {
-            map.removeLayer(imageOverlay);
-            imageOverlay = null;
+    function toggleImageOverlay(index) {
+        if (activeImageIndex === index) {
+            // If the same image is clicked again, remove it
+            if (imageOverlays[index]) {
+                map.removeLayer(imageOverlays[index]);
+                imageOverlays[index] = null;
+                activeImageIndex = -1;
+            }
         } else {
-            imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            // Remove the active image overlay (if any)
+            if (activeImageIndex !== -1 && imageOverlays[activeImageIndex]) {
+                map.removeLayer(imageOverlays[activeImageIndex]);
+                imageOverlays[activeImageIndex] = null;
+            }
+
+            // Add the clicked image overlay
+            if (!imageOverlays[index]) {
+                imageOverlays[index] = L.imageOverlay(imageUrls[index], imageBoundsArray[index]).addTo(map);
+                activeImageIndex = index;
+            }
         }
     }
 
-    const toggleImageButton = L.Control.extend({
-        options: {
-            position: 'topleft'
-        },
+    for (let i = 0; i < imageUrls.length; i++) {
+        const button = L.Control.extend({
+            options: {
+                position: 'topleft'
+            },
 
-        onAdd: function () {
-            const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-            container.innerHTML = '<button id="toggle-image-button" class="leaflet-control-button">Toggle Image</button>';
-            L.DomEvent.disableClickPropagation(container);
-            L.DomEvent.on(container, 'click', function () {
-                toggleImageOverlay();
-            });
-            return container;
-        }
-    });
+            onAdd: function () {
+                const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+                container.innerHTML = `<button class="leaflet-control-button" data-index="${i}">Toggle Image ${i + 1}</button>`;
+                L.DomEvent.disableClickPropagation(container);
 
-    map.addControl(new toggleImageButton());
+                L.DomEvent.on(container, 'click', function (e) {
+                    const index = e.target.getAttribute('data-index');
+                    toggleImageOverlay(index);
+                });
 
-    toggleImageOverlay();
+                return container;
+            }
+        });
+
+        map.addControl(new button());
+    }
+
+    const imageOverlays = new Array(imageUrls.length);
 });
