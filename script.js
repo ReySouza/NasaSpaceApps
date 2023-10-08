@@ -40,9 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error loading KML layer:', error);
     });
 
-    // Add the image overlay
-    const imageUrl = 'overlay_image.jpg';
-    const imageBounds = [[-30, 23], [-28, 25]];
+    const imageUrl = 'mapa_geologia.png';
+    const imageBounds = [[16.618, -27.844], [27.708, -33.142]];
 
     const imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 });
