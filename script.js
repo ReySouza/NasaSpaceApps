@@ -26,3 +26,5 @@
             map.fitBounds(kmlLayer.getBounds());
 
         });
+
+        };
