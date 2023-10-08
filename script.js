@@ -17,4 +17,6 @@
 
             L.control.layers(baseMaps).addTo(map);
             streetMap.addTo(map);
+
+            omnivore.kml('bioscape_domain_20220201').addTo(map);
         });
