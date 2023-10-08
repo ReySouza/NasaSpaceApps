@@ -41,24 +41,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let activeImageIndex = -1; // Variable to track the active image overlay
     const imageUrls = [
-        'image1.png',
-        'image2.png',
-        'image3.png',
-        'image4.png',
-        'image5.png',
-        'image6.png',
-        'image7.png',
-        'image8.png',
-        'image9.png',
+        'mapa_geologia.png',
+        'mapa_geomorf.png',
+        'Fire.png',
+        'mapa_solo.png',
+        'NDVI_Litoral.png',
+        'NDVI_africa.png',
+        'EMIT1.png',
+        'EMIT2.png',
+        'EMIT3.png',
     ];
 
     const imageBoundsArray = [
         [[-28.844, 14.618], [-34.142, 25.708]],  // Image 1 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 2 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 3 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 4 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 5 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 6 bounds
+        [[-28.844, 14.618], [-34.142, 25.708]],  // Image 2 bounds
+        [[-17.1369, 38.3144], [-37.5057, 10.8166]],  // Image 3 bounds
+        [[-28.844, 14.618], [-34.142, 25.708]],  // Image 4 bounds
+        [[-33.4985, 17.287], [-35.662, 22.855]],  // Image 5 bounds
+        [[-12.566, 26.795], [-31.443, 36.74]],  // Image 6 bounds
         [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 7 bounds
         [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 8 bounds
         [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]]   // Image 9 bounds
