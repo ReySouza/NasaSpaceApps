@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     kmlLayer.on('error', function (error) {
         console.error('Error loading KML layer:', error);
-    }); // Close the error handler function here
+    });
+
+    var layer = L.leafletGeotiff(lulc-human-modification-terrestrial-systems_geographic.tif).addTo(map);
 
     });
 });
