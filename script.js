@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         [[-33.018, 19.98], [-33.014, 21.242]]   // Image 9 bounds
     ];
 
-    const imageOverlays = imageUrls.map((imageUrl, index) => {
+            const imageOverlays = imageUrls.map((imageUrl, index) => {
                 const bounds = imageBoundsArray[index];
                 const imageOverlay = L.imageOverlay(imageUrl, bounds).addTo(map);
 
@@ -135,6 +135,4 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             }
-
-            let activeImageIndex = -1; // Variable to track the active image overlay
         });
