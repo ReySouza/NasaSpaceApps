@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const map = L.map('map').setView([-29.0000, 24.0000], 5);
 
-
     const kmlUrl = 'bioscape_domain_20220201.kml';
+
     const kmlLayer = omnivore.kml(kmlUrl, {
         style: function (feature) {
             return {
@@ -21,5 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     kmlLayer.on('error', function (error) {
         console.error('Error loading KML layer:', error);
+    });
+
     });
 });
