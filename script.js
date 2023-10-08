@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
         [[-28.844, 14.618], [-34.142, 25.708]],  // Image 4 bounds
         [[-33.4985, 17.287], [-35.662, 22.855]],  // Image 5 bounds
         [[-12.566, 26.795], [-31.443, 36.74]],  // Image 6 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 7 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]],  // Image 8 bounds
-        [[-XX.XXX, XX.XXX], [-XX.XXX, XX.XXX]]   // Image 9 bounds
+        [[-33.018, 19.98], [-33.014, 21.242]],  // Image 7 bounds
+        [[-33.018, 19.98], [-33.014, 21.242]],  // Image 8 bounds
+        [[-33.018, 19.98], [-33.014, 21.242]]   // Image 9 bounds
     ];
 
     function toggleImageOverlay(index) {
