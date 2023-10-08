@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     L.control.layers(baseMaps).addTo(map);
     streetMap.addTo(map);
 
+    // Add the KML layer (as you did before)
     const kmlUrl = 'bioscape_domain_20220201.kml';
     const kmlLayer = omnivore.kml(kmlUrl, {
         style: function (feature) {
@@ -39,4 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error loading KML layer:', error);
     });
 
-    });
+    // Add the image overlay
+    const imageUrl = 'overlay_image.jpg';
+    const imageBounds = [[-30, 23], [-28, 25]];
+
+    const imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+});
