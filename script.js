@@ -37,5 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     kmlLayer.on('error', function (error) {
         console.error('Error loading KML layer:', error);
+
+
+    const toggleButton = document.getElementById('toggleKML');
+        let kmlLayerVisible = false;
+
+         toggleButton.addEventListener('click', function () {
+      if (kmlLayerVisible) {
+        kmlLayer.setStyle({ opacity: 0, fillOpacity: 0 });
+    } else {
+        kmlLayer.setStyle({ opacity: 1, fillOpacity: 1 });
+    }
+        kmlLayerVisible = !kmlLayerVisible;
     });
 });
