@@ -24,3 +24,5 @@
 
         kmlLayer.on('ready', function () {
             map.fitBounds(kmlLayer.getBounds());
+
+        });
