@@ -43,5 +43,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageUrl = 'mapa_geologia.png';
     const imageBounds = [[-29.844, 16.618], [-35.142, 27.708]];
 
-    const imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+      function toggleImageOverlay() {
+        if (imageOverlay) {
+            map.removeLayer(imageOverlay);
+            imageOverlay = null;
+        } else {
+            imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+        }
+    }
+
+    const toggleImageButton = L.Control.extend({
+        options: {
+            position: 'topleft'
+        },
+
+        onAdd: function () {
+            const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+            container.innerHTML = '<button id="toggle-image-button" class="leaflet-control-button">Toggle Image</button>';
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.on(container, 'click', function () {
+                toggleImageOverlay();
+            });
+            return container;
+        }
+    });
+
+    map.addControl(new toggleImageButton());
+
+    toggleImageOverlay();
 });
