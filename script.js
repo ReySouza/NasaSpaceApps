@@ -18,5 +18,9 @@
             L.control.layers(baseMaps).addTo(map);
             streetMap.addTo(map);
 
-            omnivore.kml('bioscape_domain_20220201.kml').addTo(map);
-        });
+            var kmlUrl = 'bioscape_domain_20220201.kmç';
+        var kmlLayer = omnivore.kml(kmlUrl);
+        kmlLayer.addTo(map);
+
+        kmlLayer.on('ready', function () {
+            map.fitBounds(kmlLayer.getBounds());
