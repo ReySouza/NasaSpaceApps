@@ -1,5 +1,5 @@
         document.addEventListener('DOMContentLoaded', function () {
-            var map = L.map('map').setView([-14.2350, -51.9253], 5);
+            var map = L.map('map').setView([-29.0000, 24.0000], 5);
 
             var streetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
                 attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
