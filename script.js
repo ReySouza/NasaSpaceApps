@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const imageUrl = 'mapa_geologia.png';
-    const imageBounds = [[-27.844, 16.618], [-33.142, 27.708]];
+    const imageBounds = [[-29.844, 16.618], [-35.142, 27.708]];
 
     const imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 });
